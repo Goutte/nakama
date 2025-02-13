@@ -52,6 +52,7 @@ services:
   prometheus:
     image: prom/prometheus
     entrypoint: /bin/sh -c
+    restart: "no"
     command: |
       'sh -s <<EOF
         cat > ./prometheus.yml <<EON
