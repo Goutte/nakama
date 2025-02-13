@@ -1,12 +1,37 @@
+# Full configuration is available here:
+# https://heroiclabs.com/docs/nakama/getting-started/configuration/#server-configuration
+# Copy this file to ./config.yml and change the various secrets.
+
 name: nakama-gsc-1
 data_dir: "./data/"
-
-logger:
-  stdout: true
-  level: "warn"
-  file: "/nakama/data/logfile.log"
 
 console:
   port: 7351
   username: "admin"
   password: "password"
+  signing_key: "defaultsigningkey"
+
+logger:
+  stdout: false
+  level: "warn"
+  file: "/nakama/data/logfile.log"
+  rotation: true
+  # In megabytes
+  max_size: 5
+  # In days
+  max_age: 120
+  # In files
+  max_backups: 5
+  compress: true
+
+runtime:
+  http_key: "defaulthttpkey"
+
+session:
+  encryption_key: "defaultencryptionkey"
+  token_expiry_sec: 600
+  refresh_encryption_key: "defaultrefreshencryptionkey"
+  refresh_token_expiry_sec: 36000
+
+socket:
+  server_key: "defaultserverkey"
